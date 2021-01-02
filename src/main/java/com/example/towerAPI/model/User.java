@@ -1,8 +1,12 @@
 package com.example.towerAPI.model;
 
+import com.example.towerAPI.dto.LobbyMapping;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Table(name="users")
 @Entity
@@ -19,9 +23,9 @@ public class User {
     private String email;
     @Column(name="password")
     private String password;
+    @Column(name="is_guest")
+    private boolean isGuest = false;
 
-    @JsonProperty("is_guest")
-    private boolean isGuest;
     public User() {
         super();
     }
@@ -80,4 +84,5 @@ public class User {
     public void setGuest(boolean guest) {
         isGuest = guest;
     }
+
 }
